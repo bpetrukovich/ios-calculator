@@ -1,7 +1,7 @@
 import { CalculatorLogic } from "./calculator-logic";
 
 export class CalculatorApp {
-  number = "0";
+  _number = "0";
 
   constructor() {
     this.calculator = new CalculatorLogic();
@@ -9,11 +9,11 @@ export class CalculatorApp {
 
   // TODO: maybe events
   getScreen() {
-    return this.number;
+    return this._number;
   }
 
   clickZero() {
-    if (this.number === "0") {
+    if (this._number === "0") {
       return;
     }
 
@@ -73,11 +73,11 @@ export class CalculatorApp {
   clickComma() {}
 
   clickSign() {
-    this.number = "-" + this.number;
+    this._number = "-" + this._number;
   }
 
   _clickOperation() {
-    this.number = "0";
+    this._number = "0";
   }
 
   _clickNonZero(number) {
@@ -86,12 +86,12 @@ export class CalculatorApp {
   }
 
   _eraseLeadingZero() {
-    if (this.number === "0") {
-      this.number = "";
+    if (this._number === "0") {
+      this._number = "";
     }
   }
 
   _clickNumber(number) {
-    this.number += number;
+    this._number += number;
   }
 }
