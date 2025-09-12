@@ -64,8 +64,11 @@ export class CalculatorLogic {
   }
 
   _calculate() {
-    if (this._a === null || this._b === null) {
-      throw new Error("Not enough operands");
+    if (this._a === null) {
+      throw new Error("No first operand");
+    }
+    if (this._b === null) {
+      throw new Error("No second operand");
     }
     if (this._operator === null) {
       throw new Error("No operator");
