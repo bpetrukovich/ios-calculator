@@ -56,6 +56,24 @@ export class CalculatorApp {
     this._clickNonZero("9");
   }
 
+  clickDevide() {}
+
+  clickMultiply() {}
+
+  clickSubtract() {}
+
+  clickAdd() {}
+
+  clickEqual() {}
+
+  clickClear() {}
+
+  clickPercent() {}
+
+  clickComma() {}
+
+  clickSign() {}
+
   _clickNonZero(number) {
     this._eraseLeadingZero();
     this._clickNumber(number);
