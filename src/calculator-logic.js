@@ -9,6 +9,10 @@ export class CalculatorLogic {
   }
 
   getResult() {
+    console.log(this._a);
+    console.log(this._b);
+    console.log(this._operator);
+
     return this._result;
   }
 
@@ -20,8 +24,17 @@ export class CalculatorLogic {
     }
   }
 
+  pushOperandEquals(number) {
+    if (this._a === null) {
+      this._a = number;
+    } else if (this._b === null) {
+      this._b = number;
+    }
+  }
+
   pushAndEquals(number) {
-    this.pushOperand(number);
+    // TODO: duplication
+    this.pushOperandEquals(number);
     if (this._canCalculate()) {
       this._calculate();
       this._rememberA(this._result);

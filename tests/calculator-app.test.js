@@ -174,4 +174,14 @@ describe("CalculatorApp (event-driven)", () => {
 
     expect(displayCallback).toHaveBeenLastCalledWith("-0");
   });
+
+  test("equals should repeat operations", () => {
+    app.clickTwo();
+    app.clickAdd();
+    app.clickThree();
+    app.clickEquals();
+    app.clickEquals();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("8");
+  });
 });
