@@ -48,11 +48,11 @@ export class CalculatorLogic {
   }
 
   _applyOperator(operator) {
-    this._operator = operator;
     if (this._canCalculate()) {
       this._calculate();
       this._rememberA(this._result);
     }
+    this._operator = operator;
   }
 
   _rememberA(number) {
