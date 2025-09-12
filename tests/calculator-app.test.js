@@ -159,4 +159,19 @@ describe("CalculatorApp (event-driven)", () => {
 
     expect(displayCallback).toHaveBeenLastCalledWith("13");
   });
+
+  test("sign should toggle sign", () => {
+    app.clickSign();
+    app.clickSign();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("0");
+  });
+
+  test("sign ios specifics", () => {
+    app.clickFive();
+    app.clickAdd();
+    app.clickSign();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("-0");
+  });
 });

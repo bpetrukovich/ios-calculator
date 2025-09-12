@@ -90,7 +90,11 @@ export class CalculatorApp {
   clickComma() {}
 
   clickSign() {
-    this._input = "-" + this._input;
+    if (this._input[0] === "-") {
+      this._input = this._input.slice(1);
+    } else {
+      this._input = "-" + this._input;
+    }
     this._changeDisplay();
   }
 

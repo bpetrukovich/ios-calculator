@@ -48,6 +48,10 @@ class UI {
       new CalculatorButton("=", THEME.rightButtons, () => app.clickEquals()),
     );
 
+    this.operators.push(
+      new CalculatorButton("+/-", THEME.rightButtons, () => app.clickSign()),
+    );
+
     this.operators.forEach((button) => {
       document.querySelector("#app").appendChild(button.createButton());
     });
