@@ -41,17 +41,11 @@ describe("CalculatorApp", () => {
     expect(app.getScreen()).toBe("123456789");
   });
 
-  // test("clicking multiple digits correctly appends them to the screen", () => {
-  //   app.clickZero();
-  //   app.clickZero();
-  //   expect(app.getScreen()).toBe("00");
-  // });
-
-  // test("clicking multiple zeros correctly shows only one", () => {
-  //   app.clickZero();
-  //   app.clickZero();
-  //   expect(app.getScreen()).toBe("0");
-  // });
-
-  // test("number is initially empty and updates correctly after multiple digit inputs", () => {});
+  test("all non-zero numbers should show correctly with zero", () => {
+    app.clickOne();
+    app.clickZero();
+    app.clickTwo();
+    app.clickZero();
+    expect(app.getScreen()).toBe("1020");
+  });
 });
