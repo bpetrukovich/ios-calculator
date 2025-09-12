@@ -6,6 +6,7 @@ export class CalculatorApp {
 
   constructor() {
     this._calculator = new CalculatorLogic();
+    this._changeDisplay();
   }
 
   clickZero() {
