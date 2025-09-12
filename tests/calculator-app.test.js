@@ -15,6 +15,12 @@ describe("CalculatorApp", () => {
   test("clicking zero when zero on screen should show '0'", () => {
     app.clickZero();
     expect(app.getScreen()).toBe("0");
+
+    app.clickZero();
+    expect(app.getScreen()).toBe("0");
+
+    app.clickZero();
+    expect(app.getScreen()).toBe("0");
   });
 
   // test("clicking multiple digits correctly appends them to the screen", () => {
