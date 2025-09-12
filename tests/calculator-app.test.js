@@ -28,6 +28,19 @@ describe("CalculatorApp", () => {
     expect(app.getScreen()).toBe("1");
   });
 
+  test("all non-zero numbers should show correctly", () => {
+    app.clickOne();
+    app.clickTwo();
+    app.clickThree();
+    app.clickFour();
+    app.clickFive();
+    app.clickSix();
+    app.clickSeven();
+    app.clickEight();
+    app.clickNine();
+    expect(app.getScreen()).toBe("123456789");
+  });
+
   // test("clicking multiple digits correctly appends them to the screen", () => {
   //   app.clickZero();
   //   app.clickZero();
