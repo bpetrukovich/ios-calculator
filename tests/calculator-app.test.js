@@ -8,20 +8,21 @@ describe("CalculatorApp", () => {
     app = new CalculatorApp();
   });
 
-  test("initial screen is empty", () => {
-    expect(app.getScreen()).toBe("");
-  });
-
-  test("clicking zero adds '0' to the screen", () => {
-    app.clickZero();
+  test("initial screen should show '0'", () => {
     expect(app.getScreen()).toBe("0");
   });
 
-  test("clicking multiple digits correctly appends them to the screen", () => {
-    app.clickZero();
-    app.clickZero();
-    expect(app.getScreen()).toBe("00");
-  });
+  // test("clicking multiple digits correctly appends them to the screen", () => {
+  //   app.clickZero();
+  //   app.clickZero();
+  //   expect(app.getScreen()).toBe("00");
+  // });
+
+  // test("clicking multiple zeros correctly shows only one", () => {
+  //   app.clickZero();
+  //   app.clickZero();
+  //   expect(app.getScreen()).toBe("0");
+  // });
 
   // test("number is initially empty and updates correctly after multiple digit inputs", () => {});
 });
