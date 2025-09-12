@@ -24,6 +24,7 @@ export class CalculatorLogic {
     this.pushOperand(number);
     if (this._canCalculate()) {
       this._calculate();
+      this._rememberA(this._result);
     }
   }
 

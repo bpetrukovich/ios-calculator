@@ -149,4 +149,14 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickZero();
     expect(displayCallback).toHaveBeenLastCalledWith("0");
   });
+
+  test("equals should not forget nums", () => {
+    app.clickSix();
+    app.clickAdd();
+    app.clickSeven();
+    app.clickEquals();
+    app.clickSubtract();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("13");
+  });
 });
