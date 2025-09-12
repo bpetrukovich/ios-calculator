@@ -1,5 +1,8 @@
-button {
+* {
   font-size: 30px;
+}
+
+button {
   color: #fff;
   width: 80px;
   height: 70px;
