@@ -17,43 +17,54 @@ export class CalculatorApp {
       return;
     }
 
-    this._clickNumber(0);
+    this._clickNumber("0");
   }
 
   clickOne() {
-    this._clickNumber(1);
+    this._clickNonZero("1");
   }
 
   clickTwo() {
-    this._clickNumber(2);
+    this._clickNonZero("2");
   }
 
   clickThree() {
-    this._clickNumber(3);
+    this._clickNonZero("3");
   }
 
   clickFour() {
-    this._clickNumber(4);
+    this._clickNonZero("4");
   }
 
   clickFive() {
-    this._clickNumber(5);
+    this._clickNonZero("5");
   }
 
   clickSix() {
-    this._clickNumber(6);
+    this._clickNonZero("6");
   }
 
   clickSeven() {
-    this._clickNumber(7);
+    this._clickNonZero("7");
   }
 
   clickEight() {
-    this._clickNumber(8);
+    this._clickNonZero("8");
   }
 
   clickNine() {
-    this._clickNumber(9);
+    this._clickNonZero("9");
+  }
+
+  _clickNonZero(number) {
+    this._eraseLeadingZero();
+    this._clickNumber(number);
+  }
+
+  _eraseLeadingZero() {
+    if (this.number === "0") {
+      this.number = "";
+    }
   }
 
   _clickNumber(number) {

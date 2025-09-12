@@ -23,6 +23,11 @@ describe("CalculatorApp", () => {
     expect(app.getScreen()).toBe("0");
   });
 
+  test("clicking non-zero when zero on screen should erase zero", () => {
+    app.clickOne();
+    expect(app.getScreen()).toBe("1");
+  });
+
   // test("clicking multiple digits correctly appends them to the screen", () => {
   //   app.clickZero();
   //   app.clickZero();
