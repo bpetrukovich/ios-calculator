@@ -63,6 +63,7 @@ export class CalculatorApp {
   clickEqual() {}
 
   clickClear() {
+    // TODO: duplication
     this._number = "0";
     this._changeDisplay();
   }
