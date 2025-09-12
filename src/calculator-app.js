@@ -64,6 +64,8 @@ export class CalculatorApp {
 
   clickClear() {}
 
+  clickClearAll() {}
+
   clickPercent() {}
 
   clickComma() {}
