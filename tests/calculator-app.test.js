@@ -23,7 +23,7 @@ describe("CalculatorApp (event-driven)", () => {
 
   test("clicking zero when zero on screen should show '0'", () => {
     app.clickZero();
-    expect(displayCallback).not.toHaveBeenCalled();
+    expect(displayCallback).toHaveBeenCalledWith("0");
   });
 
   test("clicking non-zero when zero on screen should erase zero", () => {
@@ -141,5 +141,12 @@ describe("CalculatorApp (event-driven)", () => {
     expect(displayCallback).toHaveBeenLastCalledWith("3");
     app.clickSubtract();
     expect(displayCallback).toHaveBeenLastCalledWith("5");
+  });
+
+  test("should show 0 when second argument is 0", () => {
+    app.clickTwo();
+    app.clickSubtract();
+    app.clickZero();
+    expect(displayCallback).toHaveBeenLastCalledWith("0");
   });
 });

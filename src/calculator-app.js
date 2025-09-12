@@ -10,47 +10,43 @@ export class CalculatorApp {
   }
 
   clickZero() {
-    if (this._input === "0") {
-      return;
-    }
-
     this._clickNumber("0");
   }
 
   clickOne() {
-    this._clickNonZero("1");
+    this._clickNumber("1");
   }
 
   clickTwo() {
-    this._clickNonZero("2");
+    this._clickNumber("2");
   }
 
   clickThree() {
-    this._clickNonZero("3");
+    this._clickNumber("3");
   }
 
   clickFour() {
-    this._clickNonZero("4");
+    this._clickNumber("4");
   }
 
   clickFive() {
-    this._clickNonZero("5");
+    this._clickNumber("5");
   }
 
   clickSix() {
-    this._clickNonZero("6");
+    this._clickNumber("6");
   }
 
   clickSeven() {
-    this._clickNonZero("7");
+    this._clickNumber("7");
   }
 
   clickEight() {
-    this._clickNonZero("8");
+    this._clickNumber("8");
   }
 
   clickNine() {
-    this._clickNonZero("9");
+    this._clickNumber("9");
   }
 
   clickDevide() {
@@ -119,11 +115,6 @@ export class CalculatorApp {
     this._number = "0";
   }
 
-  _clickNonZero(number) {
-    this._eraseLeadingZero();
-    this._clickNumber(number);
-  }
-
   _eraseLeadingZero() {
     if (this._input === "0") {
       this._input = "";
@@ -131,6 +122,7 @@ export class CalculatorApp {
   }
 
   _clickNumber(number) {
+    this._eraseLeadingZero();
     this._input += number;
     this._changeDisplay();
   }
