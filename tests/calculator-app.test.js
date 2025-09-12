@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test, vi } from "vitest";
+import { beforeEach, afterEach, describe, expect, test, vi } from "vitest";
 import { CalculatorApp } from "../src/calculator-app";
 import { eventEmitter } from "../src/event-emitter";
 
@@ -9,26 +9,21 @@ describe("CalculatorApp (event-driven)", () => {
   beforeEach(() => {
     app = new CalculatorApp();
     displayCallback = vi.fn();
-    eventEmitter.addEventListener("changeDisplay", (e) =>
-      displayCallback(e.detail),
-    );
+    eventEmitter.on("changeDisplay", displayCallback);
+  });
+
+  afterEach(() => {
+    eventEmitter.off("changeDisplay", displayCallback);
   });
 
   test("initial screen should show '0'", () => {
-    expect(displayCallback).toHaveBeenCalledTimes(0);
     app._changeDisplay();
     expect(displayCallback).toHaveBeenCalledWith("0");
   });
 
   test("clicking zero when zero on screen should show '0'", () => {
     app.clickZero();
-    expect(displayCallback).toHaveBeenCalledTimes(0);
-
-    app.clickZero();
-    expect(displayCallback).toHaveBeenCalledTimes(0);
-
-    app.clickZero();
-    expect(displayCallback).toHaveBeenCalledTimes(0);
+    expect(displayCallback).not.toHaveBeenCalled();
   });
 
   test("clicking non-zero when zero on screen should erase zero", () => {

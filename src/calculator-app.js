@@ -103,9 +103,7 @@ export class CalculatorApp {
   }
 
   _changeDisplay() {
-    const changeDisplayEvent = new CustomEvent("changeDisplay", {
-      detail: this._number,
-    });
-    eventEmitter.dispatchEvent(changeDisplayEvent);
+    const CHANGE_DISPLAY_EVENT = "changeDisplay";
+    eventEmitter.emit(CHANGE_DISPLAY_EVENT, this._number);
   }
 }
