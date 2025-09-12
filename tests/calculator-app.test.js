@@ -119,7 +119,17 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickAdd();
     app.clickThree();
     expect(displayCallback).toHaveBeenLastCalledWith("3");
-    app.clickEqual();
+    app.clickEquals();
+    expect(displayCallback).toHaveBeenLastCalledWith("5");
+  });
+
+  test("should sum 2 numbers without equal", () => {
+    app.clickTwo();
+    expect(displayCallback).toHaveBeenLastCalledWith("2");
+    app.clickAdd();
+    app.clickThree();
+    expect(displayCallback).toHaveBeenLastCalledWith("3");
+    app.clickAdd();
     expect(displayCallback).toHaveBeenLastCalledWith("5");
   });
 });

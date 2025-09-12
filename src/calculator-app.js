@@ -2,14 +2,14 @@ import { CalculatorLogic } from "./calculator-logic";
 import { eventEmitter } from "./event-emitter";
 
 export class CalculatorApp {
-  _number = "0";
+  _input = "0";
 
   constructor() {
     this._calculator = new CalculatorLogic();
   }
 
   clickZero() {
-    if (this._number === "0") {
+    if (this._input === "0") {
       return;
     }
 
@@ -53,36 +53,38 @@ export class CalculatorApp {
   }
 
   clickDevide() {
-    this._clickOperation();
+    this._calculator.pushAndDevide(+this._input);
+    this._tryGetResultAndReset();
   }
 
   clickMultiply() {
-    this._clickOperation();
+    this._calculator.pushAndMultiply(+this._input);
+    this._tryGetResultAndReset();
   }
 
   clickSubtract() {
-    this._clickOperation();
+    this._calculator.pushAndSubtract(+this._input);
+    this._tryGetResultAndReset();
   }
 
   clickAdd() {
-    this._calculator.add();
-    this._clickOperation();
+    this._calculator.pushAndAdd(+this._input);
+    this._tryGetResultAndReset();
   }
 
-  clickEqual() {
-    this._calculator.pushOperand(+this._number);
-    this._number = "" + this._calculator.getResult();
-    this._changeDisplay();
+  clickEquals() {
+    this._calculator.pushAndEquals(+this._input);
+    this._tryGetResultAndReset();
   }
 
   clickClear() {
     // TODO: duplication
-    this._number = "0";
+    this._resetInput();
     this._changeDisplay();
   }
 
   clickClearAll() {
-    this._number = "0";
+    this._resetInput();
     this._changeDisplay();
   }
 
@@ -91,12 +93,28 @@ export class CalculatorApp {
   clickComma() {}
 
   clickSign() {
-    this._number = "-" + this._number;
+    this._input = "-" + this._input;
     this._changeDisplay();
   }
 
+  _tryGetResult() {
+    if (this._calculator.isHaveResult()) {
+      this._input = "" + this._calculator.getResult();
+      this._changeDisplay();
+    }
+  }
+
+  _resetInput() {
+    this._input = "0";
+  }
+
+  _tryGetResultAndReset() {
+    this._tryGetResult();
+    this._resetInput();
+  }
+
   _clickOperation() {
-    this._calculator.pushOperand(+this._number);
+    this._calculator.pushOperand(+this._input);
     this._number = "0";
   }
 
@@ -106,18 +124,18 @@ export class CalculatorApp {
   }
 
   _eraseLeadingZero() {
-    if (this._number === "0") {
-      this._number = "";
+    if (this._input === "0") {
+      this._input = "";
     }
   }
 
   _clickNumber(number) {
-    this._number += number;
+    this._input += number;
     this._changeDisplay();
   }
 
   _changeDisplay() {
     const CHANGE_DISPLAY_EVENT = "changeDisplay";
-    eventEmitter.emit(CHANGE_DISPLAY_EVENT, this._number);
+    eventEmitter.emit(CHANGE_DISPLAY_EVENT, this._input);
   }
 }

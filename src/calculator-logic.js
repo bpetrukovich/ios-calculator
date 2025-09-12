@@ -4,11 +4,11 @@ export class CalculatorLogic {
   _operator = null;
   _result = null;
 
+  isHaveResult() {
+    return Number.isFinite(this._result);
+  }
+
   getResult() {
-    console.log(this._a);
-    console.log(this._b);
-    console.log(this._operator);
-    this._calculate();
     return this._result;
   }
 
@@ -20,14 +20,47 @@ export class CalculatorLogic {
     }
   }
 
-  multiply() {}
+  pushAndEquals(number) {
+    this.pushOperand(number);
+    if (this._canCalculate()) {
+      this._calculate();
+    }
+  }
 
-  devide() {}
+  pushAndMultiply(number) {
+    this.pushOperand(number);
+    this._applyOperator("*");
+  }
 
-  subtract() {}
+  pushAndDevide(number) {
+    this.pushOperand(number);
+    this._applyOperator("/");
+  }
 
-  add() {
-    this._operator = "+";
+  pushAndSubtract(number) {
+    this.pushOperand(number);
+    this._applyOperator("-");
+  }
+
+  pushAndAdd(number) {
+    this.pushOperand(number);
+    this._applyOperator("+");
+  }
+
+  _applyOperator(operator) {
+    this._operator = operator;
+    if (this._canCalculate()) {
+      this._calculate();
+      this._rememberA(this._result);
+    }
+  }
+
+  _rememberA(number) {
+    this._a = number;
+  }
+
+  _canCalculate() {
+    return this._a !== null && this._b !== null && this._operator !== null;
   }
 
   _calculate() {
@@ -58,6 +91,5 @@ export class CalculatorLogic {
     this._a = null;
     this._b = null;
     this._operator = null;
-    this._result = null;
   }
 }
