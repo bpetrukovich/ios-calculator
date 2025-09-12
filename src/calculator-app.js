@@ -13,6 +13,10 @@ export class CalculatorApp {
   }
 
   clickZero() {
+    if (this.number === "0") {
+      return;
+    }
+
     this._clickNumber(0);
   }
 
