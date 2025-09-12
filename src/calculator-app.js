@@ -72,7 +72,13 @@ export class CalculatorApp {
 
   clickComma() {}
 
-  clickSign() {}
+  clickSign() {
+    this.number = "-" + this.number;
+  }
+
+  _clickOperation() {
+    this.number = "0";
+  }
 
   _clickNonZero(number) {
     this._eraseLeadingZero();

@@ -49,6 +49,20 @@ describe("CalculatorApp", () => {
     expect(app.getScreen()).toBe("1020");
   });
 
+  test("click on sign should invert zero", () => {
+    app.clickSign();
+    expect(app.getScreen()).toBe("-0");
+  });
+
+  test("click on sign should invert number", () => {
+    app.clickOne();
+    app.clickZero();
+    app.clickTwo();
+    app.clickZero();
+    app.clickSign();
+    expect(app.getScreen()).toBe("-1020");
+  });
+
   // test("should show max 9 digits (not including comma))", () => {
   //   app.clickOne();
   //   app.clickTwo();
