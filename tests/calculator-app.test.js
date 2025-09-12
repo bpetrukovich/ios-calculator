@@ -70,4 +70,22 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickSign();
     expect(displayCallback).toHaveBeenLastCalledWith("-1020");
   });
+
+  test("click on clear should reset screen", () => {
+    app.clickOne();
+    app.clickZero();
+    app.clickTwo();
+    app.clickZero();
+    app.clickClear();
+    expect(displayCallback).toHaveBeenLastCalledWith("0");
+  });
+
+  test("click on clear all should reset screen", () => {
+    app.clickOne();
+    app.clickZero();
+    app.clickTwo();
+    app.clickZero();
+    app.clickClear();
+    expect(displayCallback).toHaveBeenLastCalledWith("0");
+  });
 });

@@ -62,9 +62,15 @@ export class CalculatorApp {
 
   clickEqual() {}
 
-  clickClear() {}
+  clickClear() {
+    this._number = "0";
+    this._changeDisplay();
+  }
 
-  clickClearAll() {}
+  clickClearAll() {
+    this._number = "0";
+    this._changeDisplay();
+  }
 
   clickPercent() {}
 
