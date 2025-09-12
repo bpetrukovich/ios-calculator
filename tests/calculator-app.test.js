@@ -92,4 +92,24 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickClear();
     expect(displayCallback).toHaveBeenLastCalledWith("0");
   });
+
+  test("click on operators initially should not redraw the screen", () => {
+    app.clickAdd();
+    app.clickDevide();
+    app.clickMultiply();
+    app.clickSubtract();
+    expect(displayCallback).not.toHaveBeenCalled();
+  });
+
+  test("click on operators with one operand should not redraw the screen", () => {
+    app.clickOne();
+    app.clickZero();
+    app.clickTwo();
+    app.clickZero();
+    app.clickAdd();
+    app.clickDevide();
+    app.clickMultiply();
+    app.clickSubtract();
+    expect(displayCallback).toHaveBeenCalledTimes(4);
+  });
 });
