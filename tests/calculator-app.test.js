@@ -48,4 +48,20 @@ describe("CalculatorApp", () => {
     app.clickZero();
     expect(app.getScreen()).toBe("1020");
   });
+
+  // test("should show max 9 digits (not including comma))", () => {
+  //   app.clickOne();
+  //   app.clickTwo();
+  //   app.clickThree();
+  //   app.clickFour();
+  //   app.clickFive();
+  //   app.clickSix();
+  //   app.clickSeven();
+  //   app.clickEight();
+  //   app.clickNine();
+  //   app.clickNine();
+  //   app.clickNine();
+  //   app.clickNine();
+  //   expect(app.getScreen()).toBe("123456789");
+  // });
 });
