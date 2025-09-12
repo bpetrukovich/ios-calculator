@@ -7,6 +7,7 @@ export class CalculatorApp {
     this.calculator = new CalculatorLogic();
   }
 
+  // TODO: maybe events
   getScreen() {
     return this.number;
   }
