@@ -80,6 +80,15 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickZero();
     app.clickTwo();
     app.clickZero();
+    app.clickClearAll();
+    expect(displayCallback).toHaveBeenLastCalledWith("0");
+  });
+
+  test("click on clear should reset screen", () => {
+    app.clickOne();
+    app.clickZero();
+    app.clickTwo();
+    app.clickZero();
     app.clickClear();
     expect(displayCallback).toHaveBeenLastCalledWith("0");
   });
