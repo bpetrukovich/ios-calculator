@@ -1,15 +1,11 @@
 import { CalculatorLogic } from "./calculator-logic";
+import { eventEmitter } from "./event-emitter";
 
 export class CalculatorApp {
   _number = "0";
 
   constructor() {
     this.calculator = new CalculatorLogic();
-  }
-
-  // TODO: maybe events
-  getScreen() {
-    return this._number;
   }
 
   clickZero() {
@@ -74,6 +70,7 @@ export class CalculatorApp {
 
   clickSign() {
     this._number = "-" + this._number;
+    this._changeDisplay();
   }
 
   _clickOperation() {
@@ -93,5 +90,13 @@ export class CalculatorApp {
 
   _clickNumber(number) {
     this._number += number;
+    this._changeDisplay();
+  }
+
+  _changeDisplay() {
+    const changeDisplayEvent = new CustomEvent("changeDisplay", {
+      detail: this._number,
+    });
+    eventEmitter.dispatchEvent(changeDisplayEvent);
   }
 }
