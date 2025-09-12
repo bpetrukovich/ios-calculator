@@ -112,4 +112,14 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickSubtract();
     expect(displayCallback).toHaveBeenCalledTimes(4);
   });
+
+  test("should sum 2 numbers correctly", () => {
+    app.clickTwo();
+    expect(displayCallback).toHaveBeenLastCalledWith("2");
+    app.clickAdd();
+    app.clickThree();
+    expect(displayCallback).toHaveBeenLastCalledWith("3");
+    app.clickEqual();
+    expect(displayCallback).toHaveBeenLastCalledWith("5");
+  });
 });

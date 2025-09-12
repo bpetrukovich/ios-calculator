@@ -5,7 +5,7 @@ export class CalculatorApp {
   _number = "0";
 
   constructor() {
-    this.calculator = new CalculatorLogic();
+    this._calculator = new CalculatorLogic();
   }
 
   clickZero() {
@@ -52,15 +52,28 @@ export class CalculatorApp {
     this._clickNonZero("9");
   }
 
-  clickDevide() {}
+  clickDevide() {
+    this._clickOperation();
+  }
 
-  clickMultiply() {}
+  clickMultiply() {
+    this._clickOperation();
+  }
 
-  clickSubtract() {}
+  clickSubtract() {
+    this._clickOperation();
+  }
 
-  clickAdd() {}
+  clickAdd() {
+    this._calculator.add();
+    this._clickOperation();
+  }
 
-  clickEqual() {}
+  clickEqual() {
+    this._calculator.pushOperand(+this._number);
+    this._number = "" + this._calculator.getResult();
+    this._changeDisplay();
+  }
 
   clickClear() {
     // TODO: duplication
@@ -83,6 +96,7 @@ export class CalculatorApp {
   }
 
   _clickOperation() {
+    this._calculator.pushOperand(+this._number);
     this._number = "0";
   }
 
