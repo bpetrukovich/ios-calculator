@@ -98,7 +98,7 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickDevide();
     app.clickMultiply();
     app.clickSubtract();
-    expect(displayCallback).not.toHaveBeenCalled();
+    expect(displayCallback).toHaveBeenCalledTimes(1);
   });
 
   test("click on operators with one operand should not redraw the screen", () => {
@@ -110,7 +110,7 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickDevide();
     app.clickMultiply();
     app.clickSubtract();
-    expect(displayCallback).toHaveBeenCalledTimes(4);
+    expect(displayCallback).toHaveBeenCalledTimes(5);
   });
 
   test("should sum 2 numbers correctly", () => {
@@ -130,6 +130,16 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickThree();
     expect(displayCallback).toHaveBeenLastCalledWith("3");
     app.clickAdd();
+    expect(displayCallback).toHaveBeenLastCalledWith("5");
+  });
+
+  test("should sum 2 numbers without equal", () => {
+    app.clickTwo();
+    expect(displayCallback).toHaveBeenLastCalledWith("2");
+    app.clickAdd();
+    app.clickThree();
+    expect(displayCallback).toHaveBeenLastCalledWith("3");
+    app.clickSubtract();
     expect(displayCallback).toHaveBeenLastCalledWith("5");
   });
 });
