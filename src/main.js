@@ -62,4 +62,4 @@ applyFunctionToButtons("equals", () => app.clickEquals());
 applyFunctionToButtons("clear", () => app.clickClearAll());
 applyFunctionToButtons("sign", () => app.clickSign());
 applyFunctionToButtons("percent", () => app.clickPercent());
-applyFunctionToButtons(",", () => app.clickComma());
+applyFunctionToButtons("comma", () => app.clickComma());
