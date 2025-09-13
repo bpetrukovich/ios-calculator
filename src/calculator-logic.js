@@ -17,6 +17,8 @@ export class CalculatorLogic {
   }
 
   pushOperand(number) {
+    console.log("pushOperand", number);
+
     if (this._a === null) {
       this._a = number;
     } else {
@@ -46,7 +48,7 @@ export class CalculatorLogic {
     this._applyOperator("*");
   }
 
-  pushAndDevide(number) {
+  pushAndDivide(number) {
     this.pushOperand(number);
     this._applyOperator("/");
   }

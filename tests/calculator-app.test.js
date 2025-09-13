@@ -95,7 +95,7 @@ describe("CalculatorApp (event-driven)", () => {
 
   test("click on operators initially should not redraw the screen", () => {
     app.clickAdd();
-    app.clickDevide();
+    app.clickDivide();
     app.clickMultiply();
     app.clickSubtract();
     expect(displayCallback).toHaveBeenCalledTimes(1);
@@ -107,7 +107,7 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickTwo();
     app.clickZero();
     app.clickAdd();
-    app.clickDevide();
+    app.clickDivide();
     app.clickMultiply();
     app.clickSubtract();
     expect(displayCallback).toHaveBeenCalledTimes(5);
@@ -183,5 +183,29 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickEquals();
 
     expect(displayCallback).toHaveBeenLastCalledWith("8");
+  });
+
+  test("click on comma should work", () => {
+    app.clickTwo();
+    app.clickComma();
+    app.clickThree();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("2,3");
+  });
+
+  test("addition with comma should work", () => {
+    app.clickTwo();
+    app.clickComma();
+    app.clickThree();
+
+    app.clickAdd();
+
+    app.clickThree();
+    app.clickComma();
+    app.clickTwo();
+
+    app.clickEquals();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("5,5");
   });
 });

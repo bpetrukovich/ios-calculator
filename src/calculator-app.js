@@ -1,5 +1,6 @@
 import { CalculatorLogic } from "./calculator-logic";
 import { eventEmitter } from "./event-emitter";
+import { Formatter } from "./formatter";
 
 export class CalculatorApp {
   _input = "0";
@@ -49,28 +50,33 @@ export class CalculatorApp {
     this._clickNumber("9");
   }
 
-  clickDevide() {
-    this._calculator.pushAndDevide(+this._input);
-    this._tryGetResultAndReset();
+  clickComma() {
+    this._clickNumber(",");
+  }
+
+  clickDivide() {
+    this._clickOperation((input) => this._calculator.pushAndDivide(input));
   }
 
   clickMultiply() {
-    this._calculator.pushAndMultiply(+this._input);
-    this._tryGetResultAndReset();
+    this._clickOperation((input) => this._calculator.pushAndMultiply(input));
   }
 
   clickSubtract() {
-    this._calculator.pushAndSubtract(+this._input);
-    this._tryGetResultAndReset();
+    this._clickOperation((input) => this._calculator.pushAndSubtract(input));
   }
 
   clickAdd() {
-    this._calculator.pushAndAdd(+this._input);
-    this._tryGetResultAndReset();
+    this._clickOperation((input) => this._calculator.pushAndAdd(input));
   }
 
   clickEquals() {
-    this._calculator.pushAndEquals(+this._input);
+    this._clickOperation((input) => this._calculator.pushAndEquals(input));
+  }
+
+  _clickOperation(handler) {
+    const formattedInput = Formatter.formatToCalculator(this._input);
+    handler(formattedInput);
     this._tryGetResultAndReset();
   }
 
@@ -87,8 +93,6 @@ export class CalculatorApp {
 
   clickPercent() {}
 
-  clickComma() {}
-
   clickSign() {
     if (this._input[0] === "-") {
       this._input = this._input.slice(1);
@@ -100,7 +104,8 @@ export class CalculatorApp {
 
   _tryGetResult() {
     if (this._calculator.isHaveResult()) {
-      this._input = "" + this._calculator.getResult();
+      const output = this._calculator.getResult();
+      this._input = Formatter.formatFromCalculator(output);
       this._changeDisplay();
     }
   }
@@ -114,11 +119,6 @@ export class CalculatorApp {
     this._resetInput();
   }
 
-  _clickOperation() {
-    this._calculator.pushOperand(+this._input);
-    this._number = "0";
-  }
-
   _eraseLeadingZero() {
     if (this._input === "0") {
       this._input = "";
@@ -128,6 +128,7 @@ export class CalculatorApp {
   _clickNumber(number) {
     this._eraseLeadingZero();
     this._input += number;
+    console.log(this._input);
     this._changeDisplay();
   }
 
