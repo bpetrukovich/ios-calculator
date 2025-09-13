@@ -90,3 +90,8 @@ body {
 #buttons button:active {
   opacity: 0.8;
 }
+
+.highlight {
+  background-color: var(--color-white);
+  color: var(--right-buttons-bg);
+}

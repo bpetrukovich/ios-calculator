@@ -11,10 +11,36 @@ eventEmitter.on("changeDisplay", (input) => {
 // new ButtonLayout();
 const app = new CalculatorApp();
 
+const allButtons = document.querySelectorAll("button");
+
+allButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    unhighlightAllButtons();
+  });
+});
+
 const applyFunctionToButtons = (id, handler) => {
   const button = document.querySelector(`#${id}`);
   button.addEventListener("click", handler);
 };
+
+const highlightButton = (id) => {
+  const button = document.querySelector(`#${id}`);
+  button.classList.add("highlight");
+};
+
+const unhighlightAllButtons = (button) => {
+  allButtons.forEach((button) => {
+    button.classList.remove("highlight");
+  });
+};
+
+applyFunctionToButtons("divide", () => highlightButton("divide"));
+applyFunctionToButtons("multiply", () => highlightButton("multiply"));
+applyFunctionToButtons("subtract", () => highlightButton("subtract"));
+applyFunctionToButtons("add", () => highlightButton("add"));
+
+//
 
 applyFunctionToButtons("button-0", () => app.clickZero());
 applyFunctionToButtons("button-1", () => app.clickOne());
