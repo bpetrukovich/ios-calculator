@@ -11,50 +11,29 @@ eventEmitter.on("changeDisplay", (input) => {
 // new ButtonLayout();
 const app = new CalculatorApp();
 
-class UI {
-  constructor() {
-    this.numbers = [];
-    this.numbers.push(new NumberCalculatorButton(0, () => app.clickZero()));
-    this.numbers.push(new NumberCalculatorButton(1, () => app.clickOne()));
-    this.numbers.push(new NumberCalculatorButton(2, () => app.clickTwo()));
-    this.numbers.push(new NumberCalculatorButton(3, () => app.clickThree()));
-    this.numbers.push(new NumberCalculatorButton(4, () => app.clickFour()));
-    this.numbers.push(new NumberCalculatorButton(5, () => app.clickFive()));
-    this.numbers.push(new NumberCalculatorButton(6, () => app.clickSix()));
-    this.numbers.push(new NumberCalculatorButton(7, () => app.clickSeven()));
-    this.numbers.push(new NumberCalculatorButton(8, () => app.clickEight()));
-    this.numbers.push(new NumberCalculatorButton(9, () => app.clickNine()));
+const applyFunctionToButtons = (id, handler) => {
+  const button = document.querySelector(`#${id}`);
+  button.addEventListener("click", handler);
+};
 
-    // this.numbers.forEach((button) => {
-    //   document.querySelector("#app").appendChild(button.createButton());
-    // });
+applyFunctionToButtons("button-0", () => app.clickZero());
+applyFunctionToButtons("button-1", () => app.clickOne());
+applyFunctionToButtons("button-2", () => app.clickTwo());
+applyFunctionToButtons("button-3", () => app.clickThree());
+applyFunctionToButtons("button-4", () => app.clickFour());
+applyFunctionToButtons("button-5", () => app.clickFive());
+applyFunctionToButtons("button-6", () => app.clickSix());
+applyFunctionToButtons("button-7", () => app.clickSeven());
+applyFunctionToButtons("button-8", () => app.clickEight());
+applyFunctionToButtons("button-9", () => app.clickNine());
 
-    this.operators = [];
-    // this.operators.push(
-    //   new CalculatorButton("+", THEME.rightButtons, () => app.clickAdd()),
-    // );
-    // this.operators.push(
-    //   new CalculatorButton("-", THEME.rightButtons, () => app.clickSubtract()),
-    // );
-    // this.operators.push(
-    //   new CalculatorButton("*", THEME.rightButtons, () => app.clickMultiply()),
-    // );
-    // this.operators.push(
-    //   new CalculatorButton("/", THEME.rightButtons, () => app.clickDevide()),
-    // );
-    //
-    // this.operators.push(
-    //   new CalculatorButton("=", THEME.rightButtons, () => app.clickEquals()),
-    // );
-    //
-    // this.operators.push(
-    //   new CalculatorButton("+/-", THEME.rightButtons, () => app.clickSign()),
-    // );
+applyFunctionToButtons("divide", () => app.clickDevide());
+applyFunctionToButtons("multiply", () => app.clickMultiply());
+applyFunctionToButtons("subtract", () => app.clickSubtract());
+applyFunctionToButtons("add", () => app.clickAdd());
+applyFunctionToButtons("equals", () => app.clickEquals());
 
-    // this.operators.forEach((button) => {
-    //   document.querySelector("#app").appendChild(button.createButton());
-    // });
-  }
-}
-
-new UI();
+applyFunctionToButtons("clear", () => app.clickClearAll());
+applyFunctionToButtons("sign", () => app.clickSign());
+applyFunctionToButtons("percent", () => app.clickPercent());
+applyFunctionToButtons(",", () => app.clickComma());
