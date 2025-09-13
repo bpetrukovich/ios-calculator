@@ -2,7 +2,6 @@ import { CalculatorApp } from "./calculator-app";
 import { eventEmitter } from "./event-emitter";
 import "./style.css";
 import { ButtonLayout } from "./ui/button-layout";
-import { CalculatorButton } from "./ui/calculator-button";
 
 eventEmitter.on("changeDisplay", (input) => {
   document.querySelector("#display-text").innerText = input;
