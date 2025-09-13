@@ -11,16 +11,16 @@ eventEmitter.on("changeDisplay", (input) => {
 const buttonLayout = new ButtonLayout();
 const app = new CalculatorApp();
 
-// applyFunctionToButton("button-0", () => app.clickZero());
-// applyFunctionToButton("button-1", () => app.clickOne());
-// applyFunctionToButton("button-2", () => app.clickTwo());
-// applyFunctionToButton("button-3", () => app.clickThree());
-// applyFunctionToButton("button-4", () => app.clickFour());
-// applyFunctionToButton("button-5", () => app.clickFive());
-// applyFunctionToButton("button-6", () => app.clickSix());
-// applyFunctionToButton("button-7", () => app.clickSeven());
-// applyFunctionToButton("button-8", () => app.clickEight());
-// applyFunctionToButton("button-9", () => app.clickNine());
+// applyFunctionToButton("zero", () => app.clickZero());
+// applyFunctionToButton("one", () => app.clickOne());
+// applyFunctionToButton("two", () => app.clickTwo());
+// applyFunctionToButton("three", () => app.clickThree());
+// applyFunctionToButton("four", () => app.clickFour());
+// applyFunctionToButton("five", () => app.clickFive());
+// applyFunctionToButton("six", () => app.clickSix());
+// applyFunctionToButton("seven", () => app.clickSeven());
+// applyFunctionToButton("eight", () => app.clickEight());
+// applyFunctionToButton("nine", () => app.clickNine());
 //
 // applyFunctionToButton("divide", () => app.clickDevide());
 // applyFunctionToButton("multiply", () => app.clickMultiply());
