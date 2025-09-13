@@ -3,29 +3,7 @@ import { CalculatorButton } from "./calculator-button";
 export class ButtonLayout {
   buttons = {};
 
-  constructor() {
-    const ids = [
-      "zero",
-      "one",
-      "two",
-      "three",
-      "four",
-      "five",
-      "six",
-      "seven",
-      "eight",
-      "nine",
-      "comma",
-      "add",
-      "subtract",
-      "multiply",
-      "divide",
-      "equals",
-      "clear",
-      "sign",
-      "percent",
-    ];
-
+  constructor(ids) {
     ids.forEach((id) => {
       this.buttons[id] = new CalculatorButton(id);
     });
