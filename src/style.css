@@ -15,7 +15,6 @@
 
 * {
   color: var(--theme-text-color);
-  font-size: 35px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
@@ -30,14 +29,14 @@ body {
 }
 
 #app {
+  width: min(90vw, 90vh * 9 / 19.5, 400px);
+  aspect-ratio: 9 / 19.5;
   background-color: var(--theme-bg);
-  width: 500px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding: 10px;
-
+  padding: 5cqh 2cqw 7cqh 2cqw;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
@@ -46,15 +45,16 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 15px;
-  padding: 1px;
-  height: 600px;
+}
+
+#zero {
+  text-align: left;
 }
 
 #display {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  height: 150px;
   text-align: right;
   padding: 10px;
 
@@ -85,15 +85,24 @@ body {
 }
 
 #buttons button {
-  border-radius: 300px;
-  min-height: 60px;
+  font-size: clamp(14px, 5cqw, 28px);
+  border-radius: 1000px;
   transition: opacity 0.2s;
   border: none;
   cursor: pointer;
 }
 
+#buttons button:not(#zero) {
+  aspect-ratio: 1 / 1;
+}
+
+#buttons button#zero {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 #buttons button:active {
-filter: brightness(150%);
+filter: brightness(120%);
 }
 
 .highlight {
