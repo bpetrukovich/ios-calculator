@@ -67,6 +67,13 @@ export class CalculatorLogic {
     return number / 100;
   }
 
+  clear() {
+    this._a = null;
+    this._b = null;
+    this._operator = null;
+    this._result = null;
+  }
+
   _applyOperator(operator) {
     if (this._canCalculate()) {
       this._calculate();

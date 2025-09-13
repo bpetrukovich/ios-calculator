@@ -89,6 +89,7 @@ export class CalculatorApp {
   clickClearAll() {
     this._resetInput();
     this._changeDisplay();
+    this._calculator.clear();
   }
 
   clickPercent() {

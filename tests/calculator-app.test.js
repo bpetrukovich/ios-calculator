@@ -2,7 +2,7 @@ import { beforeEach, afterEach, describe, expect, test, vi } from "vitest";
 import { CalculatorApp } from "../src/calculator-app";
 import { eventEmitter } from "../src/event-emitter";
 
-describe("CalculatorApp (event-driven)", () => {
+describe("CalculatorApp", () => {
   let app;
   let displayCallback;
 
@@ -259,5 +259,21 @@ describe("CalculatorApp (event-driven)", () => {
     app.clickPercent();
 
     expect(displayCallback).toHaveBeenLastCalledWith("0,000002");
+  });
+
+  test("click on clear should work", () => {
+    app.clickFive();
+
+    app.clickAdd();
+
+    app.clickSix();
+
+    app.clickClear();
+
+    app.clickThree();
+
+    app.clickEquals();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("8");
   });
 });
