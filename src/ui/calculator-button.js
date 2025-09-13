@@ -1,11 +1,21 @@
 export class CalculatorButton {
-  constructor(handler) {
-    this.handler = handler;
+  constructor(id) {
+    this.element = document.querySelector(`#${id}`);
   }
 
-  createButton() {
-    const button = document.createElement("button");
-    button.addEventListener("click", this.handler);
-    return button;
+  isHighlightable() {
+    return this.element.classList.contains("highlightable");
+  }
+
+  addHandler(handler) {
+    this.element.addEventListener("click", handler);
+  }
+
+  highlight() {
+    this.element.classList.add("highlight");
+  }
+
+  unhighlight() {
+    this.element.classList.remove("highlight");
   }
 }
