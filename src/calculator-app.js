@@ -51,7 +51,7 @@ export class CalculatorApp {
   }
 
   clickComma() {
-    this._clickNumber(",");
+    this._clickNumberWithoutErasingLeadingZero(",");
   }
 
   clickDivide() {
@@ -127,6 +127,10 @@ export class CalculatorApp {
 
   _clickNumber(number) {
     this._eraseLeadingZero();
+    this._clickNumberWithoutErasingLeadingZero(number);
+  }
+
+  _clickNumberWithoutErasingLeadingZero(number) {
     this._input += number;
     console.log(this._input);
     this._changeDisplay();

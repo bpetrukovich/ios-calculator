@@ -208,4 +208,12 @@ describe("CalculatorApp (event-driven)", () => {
 
     expect(displayCallback).toHaveBeenLastCalledWith("5,5");
   });
+
+  test("comma should work with zero", () => {
+    app.clickComma();
+    app.clickThree();
+    app.clickTwo();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("0,32");
+  });
 });
