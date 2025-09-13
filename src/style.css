@@ -1,3 +1,16 @@
+:root {
+  --color-light-gray: #737373;
+  --color-gray: #565859;
+  --color-orange: #ff9f0a;
+  --color-dark-gray: #444648;
+  --color-white: #e7e7e7;
+  
+  --numbers-bg: var(--color-light-gray);
+  --right-buttons-bg: var(--color-orange);
+  --top-buttons-bg: var(--color-gray);
+  --text-color: var(--color-white);
+}
+
 * {
   color: var(--text-color);
   font-size: 35px;
@@ -48,19 +61,6 @@ body {
 
 .right-col {
   background-color: #f0f0f0;
-}
-
-:root {
-  --color-light-gray: #737373;
-  --color-gray: #565859;
-  --color-orange: #ff9f0a;
-  --color-dark-gray: #444648;
-  --color-white: #e7e7e7;
-  
-  --numbers-bg: var(--color-light-gray);
-  --right-buttons-bg: var(--color-orange);
-  --top-buttons-bg: var(--color-gray);
-  --text-color: var(--color-white);
 }
 
 .top-row {
