@@ -1,18 +1,20 @@
 :root {
-  --color-light-gray: #737373;
-  --color-gray: #565859;
+  --color-light-gray: #a5a5a5;
   --color-orange: #ff9f0a;
-  --color-dark-gray: #444648;
-  --color-white: #e7e7e7;
+  --color-dark-gray: #333333;
+  --color-white: #fff;
+  --color-black: #010101;
   
-  --numbers-bg: var(--color-light-gray);
-  --right-buttons-bg: var(--color-orange);
-  --top-buttons-bg: var(--color-gray);
-  --text-color: var(--color-white);
+  --theme-bg: var(--color-black);
+  --theme-numbers-bg: var(--color-dark-gray);
+  --theme-right-buttons-bg: var(--color-orange);
+  --theme-top-buttons-bg: var(--color-light-gray);
+  --theme-top-buttons-color: var(--color-black);
+  --theme-text-color: var(--color-white);
 }
 
 * {
-  color: var(--text-color);
+  color: var(--theme-text-color);
   font-size: 35px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -28,21 +30,23 @@ body {
 }
 
 #app {
-  background-color: var(--color-dark-gray);
+  background-color: var(--theme-bg);
   width: 500px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: end;
+  padding: 10px;
+
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 #buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 4px;
+  gap: 15px;
   padding: 1px;
-  border-radius: 8px;
   height: 600px;
 }
 
@@ -64,15 +68,16 @@ body {
 }
 
 .top-row {
-  background-color: var(--top-buttons-bg);
+  background-color: var(--theme-top-buttons-bg);
+  color: var(--theme-top-buttons-color);
 }
 
 .number {
-  background-color: var(--numbers-bg);
+  background-color: var(--theme-numbers-bg);
 }
 
 .right-col {
-  background-color: var(--right-buttons-bg);
+  background-color: var(--theme-right-buttons-bg);
 }
 
 #zero {
@@ -80,18 +85,18 @@ body {
 }
 
 #buttons button {
+  border-radius: 300px;
   min-height: 60px;
-  border-radius: 4px;
   transition: opacity 0.2s;
   border: none;
   cursor: pointer;
 }
 
 #buttons button:active {
-  opacity: 0.8;
+filter: brightness(150%);
 }
 
 .highlight {
   background-color: var(--color-white);
-  color: var(--right-buttons-bg);
+  color: var(--theme-right-buttons-bg);
 }
