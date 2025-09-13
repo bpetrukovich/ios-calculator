@@ -63,6 +63,10 @@ export class CalculatorLogic {
     this._applyOperator("+");
   }
 
+  getPercent(number) {
+    return number / 100;
+  }
+
   _applyOperator(operator) {
     if (this._canCalculate()) {
       this._calculate();

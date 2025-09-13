@@ -216,4 +216,48 @@ describe("CalculatorApp (event-driven)", () => {
 
     expect(displayCallback).toHaveBeenLastCalledWith("0,32");
   });
+
+  test("click on percent should work", () => {
+    app.clickSix();
+    app.clickZero();
+    app.clickZero();
+
+    app.clickMultiply();
+
+    app.clickTwo();
+    app.clickZero();
+    app.clickZero();
+
+    app.clickPercent();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("2");
+
+    app.clickEquals();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("1200");
+  });
+
+  test("click on percent should divide by 100", () => {
+    app.clickTwo();
+
+    app.clickPercent();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("0,02");
+  });
+
+  test("click on percent should work multiple times", () => {
+    app.clickTwo();
+
+    app.clickPercent();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("0,02");
+
+    app.clickPercent();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("0,0002");
+
+    app.clickPercent();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("0,000002");
+  });
 });

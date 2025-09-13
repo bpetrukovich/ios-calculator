@@ -91,7 +91,12 @@ export class CalculatorApp {
     this._changeDisplay();
   }
 
-  clickPercent() {}
+  clickPercent() {
+    this._input = Formatter.formatFromCalculator(
+      this._calculator.getPercent(Formatter.formatToCalculator(this._input)),
+    );
+    this._changeDisplay();
+  }
 
   clickSign() {
     if (this._input[0] === "-") {
