@@ -276,4 +276,22 @@ describe("CalculatorApp", () => {
 
     expect(displayCallback).toHaveBeenLastCalledWith("8");
   });
+
+  test("click on clearAll should work", () => {
+    app.clickFive();
+
+    app.clickAdd();
+
+    app.clickSix();
+
+    app.clickClear();
+
+    app.clickClearAll();
+
+    app.clickThree();
+
+    app.clickEquals();
+
+    expect(displayCallback).toHaveBeenLastCalledWith("3");
+  });
 });
