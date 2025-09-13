@@ -87,6 +87,7 @@ export class CalculatorApp {
   }
 
   clickClearAll() {
+    // TODO: realize in ui
     this._resetInput();
     this._changeDisplay();
     this._calculator.clear();
