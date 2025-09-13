@@ -234,7 +234,7 @@ describe("CalculatorApp", () => {
 
     app.clickEquals();
 
-    expect(displayCallback).toHaveBeenLastCalledWith("1200");
+    expect(displayCallback).toHaveBeenLastCalledWith("1 200");
   });
 
   test("click on percent should divide by 100", () => {
