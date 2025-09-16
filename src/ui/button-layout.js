@@ -1,18 +1,18 @@
 import { CalculatorButton } from "./calculator-button";
 
 export class ButtonLayout {
-  buttons = {};
+  _buttons = {};
 
   constructor(ids) {
     ids.forEach((id) => {
-      this.buttons[id] = new CalculatorButton(id);
+      this._buttons[id] = new CalculatorButton(id);
     });
 
-    Object.values(this.buttons).forEach((button) => {
+    Object.values(this._buttons).forEach((button) => {
       button.addHandler(() => this._unhighlightAll());
     });
 
-    Object.values(this.buttons)
+    Object.values(this._buttons)
       .filter((button) => button.isHighlightable())
       .forEach((button) => {
         button.addHandler(() => button.highlight());
@@ -20,21 +20,21 @@ export class ButtonLayout {
   }
 
   addHandler(id, handler) {
-    if (!this.buttons[id]) {
+    if (!this._buttons[id]) {
       throw new Error(`No button with id: ${id}`);
     }
 
-    this.buttons[id].addHandler(handler);
+    this._buttons[id].addHandler(handler);
   }
 
-  addHandlerAll(handler) {
-    Object.values(this.buttons).forEach((button) => {
-      button.addHandler(handler);
+  addHandlerAll(createHandler) {
+    Object.entries(this._buttons).forEach(([id, button]) => {
+      button.addHandler(createHandler(id));
     });
   }
 
   _unhighlightAll() {
-    Object.values(this.buttons).forEach((button) => {
+    Object.values(this._buttons).forEach((button) => {
       button.unhighlight();
     });
   }

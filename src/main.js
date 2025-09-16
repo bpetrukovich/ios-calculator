@@ -32,9 +32,9 @@ const ids = [
 const buttonLayout = new ButtonLayout(ids);
 const app = new CalculatorApp();
 
-Object.entries(buttonLayout.buttons).forEach(([id, button]) => {
-  button.addHandler(() => app[`click${upperCaseFirstLetter(id)}`]());
-});
+buttonLayout.addHandlerAll(
+  (id) => () => app[`click${upperCaseFirstLetter(id)}`](),
+);
 
 function upperCaseFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
