@@ -29,7 +29,7 @@ export class ButtonLayout {
 
   addHandlerAll(createHandler) {
     Object.entries(this._buttons).forEach(([id, button]) => {
-      button.addHandler(createHandler(id));
+      button.addHandler(createHandler(id)); // can do it with bind
     });
   }
 
