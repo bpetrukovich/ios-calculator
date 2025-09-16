@@ -27,9 +27,9 @@ export class ButtonLayout {
     this._buttons[id].addHandler(handler);
   }
 
-  addHandlerAll(createHandler) {
+  addHandlerAll(handler) {
     Object.entries(this._buttons).forEach(([id, button]) => {
-      button.addHandler(createHandler(id)); // can do it with bind
+      button.addHandler(handler.bind(null, id));
     });
   }
 
